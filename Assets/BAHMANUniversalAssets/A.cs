@@ -105,106 +105,11 @@ public static class A
         }
     }
 
-    public static class Pixels
-    {
-        const float scaleGrowthFactor = .5f;
-        const float scaleBaseFactor = .5f;
-        const float radiousBase = 0f;
-        const float radiousFactor = .25f;
-        const float massGrowthFactor = 5f;
-        const float massBaseFactor = 1f;
-        const int lowerPixelBound = 0;
-        const int maxPixelBound = 4;
-        public const float MAXLATENCY = 5f;
-
-        public static int topPixelBound = 0;
-        public static float PixelScale(int iOrder)
-        {
-            return (iOrder * scaleGrowthFactor) + scaleBaseFactor;
-        }
-        public static float PixelRadious(int iOrder)
-        {
-            return (iOrder * radiousFactor) + radiousBase;
-        }
-        public static int PixelScore(int iOrder)
-        {
-            return gameSetting.PixelMergeScores[iOrder];
-        }
-
-        public static float PixelMass(int iOrder)
-        {
-            return (iOrder * massGrowthFactor) + massBaseFactor;
-        }
-        
-        public static GameObject PixelSkeleton
-        {
-            get
-            {
-                return A.GameSetting.PixelSkeleton;
-            }
-        }
-
-        public static string PixelTag(int iOrder)
-        {
-            return "M" + iOrder.ToString();
-        }
-
-        public static PixelInfo RandomPixel()
-        {
-            int pixelOrder = UnityEngine.Random.Range(lowerPixelBound, Mathf.Min(topPixelBound, maxPixelBound));
-
-            return GameSettings.CurrentDeckMergers[pixelOrder];
-        }
-        public static PixelInfo NextPixel(PixelInfo iMerger)
-        {
-            if (topPixelBound < iMerger.MergerOrder + 1)
-            {
-                topPixelBound = iMerger.MergerOrder + 1;
-                SoundManager._Instance._PlaySound(GameSounds.FirstMerge);
-            }
-            if (iMerger.MergerOrder < GameSettings.CurrentDeckMergers.Count)
-                return GameSettings.CurrentDeckMergers[iMerger.MergerOrder];
-            else
-                return null;
-        }
-        public static float PixelGizmoRadious(int iPixelOrder)
-        {
-            return gameSetting.PixelGizmoRadious[iPixelOrder];
-        }
-        public static string PixelNameFromFileName(string iFileName)
-        {
-            return iFileName.Substring(2, iFileName.Length - 2).Replace('-', ' ').Trim();
-        }
-
-        public static int PixelOrderFromFileName(string iMergerName)
-        {
-            string order = string.Empty;
-            foreach (char c in iMergerName)
-            {
-                if (c == '-')
-                {
-                    break;
-                }
-                else
-                {
-                    order += c;
-                }
-            }
-            return int.Parse(order);
-        }
-
-    }
 
     public static class GameSettings
     {
         public static int CurrentDeckPosition = 0;
-        public static List<PixelInfo> CurrentDeckMergers
-        {
-            get
-            {
-                return A.GameSetting.AllDecks[CurrentDeckPosition].DeckPixels;
-            }
-        }
+        
 
     }
 
