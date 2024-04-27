@@ -97,7 +97,7 @@ public class BAHMANAdManager : MonoBehaviour
     {
         _loadScreen.SetActive(true);
         
-        MyketIAB.init(_ShopKey);
+        //MyketIAB.init(_ShopKey);
         _currentSKU = iSKU;
         _purchaseFail = iPurchaseFail;
         _purchaseSuccess = iPurchaseSuccess;

@@ -1,20 +1,42 @@
+/*
+ * BAHMANXPManager v1.1
+ * to manage player xp level this class is usefull
+ * 
+ * just use _SetExperience to add to the current xp and listen to  OnLevelUp<FromLevel,ToLevel> for any level change.
+ * also current Level can be obtained by _GetCurrentLevel
+ * for display purposes _GetSliderValue returns a float between 0 to 1 which indicates the normalized value of current xp level. 
+ * it use to set up any XP slider
+ */
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BAHMANXPManager : MonoBehaviour
 {
+    /// <summary>
+    /// the tag by which the level saves on PlayerPrefab
+    /// </summary>
     const string TAG = "XPManagerTag";
+    /// <summary>
+    /// singletone instance
+    /// </summary>
     public static BAHMANXPManager _Instance;
     /// <summary>
     /// Invokes whenever Player levels up
+    /// int:From int:To
     /// </summary>
     public static event UnityAction<int, int> OnLevelUp;
+
     List<levelStructure> _levelSteps;
-    [SerializeField] int _stepLevel = 25;
+    [SerializeField] int _stepLevel = 2;
     [SerializeField] int _baseLevel = 0;
     [SerializeField] float _baseXP = 0;
 
+    [SerializeField] bool _provideDebugInformation = false;
+    /// <summary>
+    /// set/get the XP information from PlayerPref
+    /// </summary>
     float _currentXP
     {
         get
@@ -26,26 +48,20 @@ public class BAHMANXPManager : MonoBehaviour
             PlayerPrefs.SetFloat(TAG, value);
         }
     }
-
-    //IEnumerator _loadXPLevels()
-    //{
-    //    yield return null;
-    //    _levelSteps = new List<levelStructure>();
-    //    _levelSteps.Add(new levelStructure(0, _stepLevel));
-    //    for (int i = 1; i < 120; i++)
-    //    {
-
-    //        levelStructure ls;
-
-    //        ls.StartXP = _levelSteps[i - 1].EndXP + 1;
-    //        ls.EndXP = _levelSteps[i - 1].EndXP + (Math.Pow(_stepLevel, i));
-    //        _levelSteps.Add(ls);
-
-    //    }
-    //    yield return null;
-    //}
+    /// <summary>
+    /// provides debug information 
+    /// </summary>
+    /// <param name="iMessage">the message to show</param>
+    void _dlog(string iMessage)
+    {
+        if(_provideDebugInformation)
+        {
+            Debug.Log(iMessage);
+        }
+    }
     private void Awake()
     {
+        #region singleton setup
         if (_Instance == null)
         {
             _Instance = this;
@@ -55,6 +71,10 @@ public class BAHMANXPManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        #endregion
+
+
+        // setting up level structure to level 120
         _levelSteps = new List<levelStructure>();
         _levelSteps.Add(new levelStructure(0, _stepLevel));
         for (int i = 1; i < 120; i++)
@@ -81,22 +101,26 @@ public class BAHMANXPManager : MonoBehaviour
     {
         return _XPToLevel(_currentXP);
     }
+    /// <summary>
+    /// setting XP 
+    /// </summary>
+    /// <param name="iXPAmount">the amount to set</param>
     public void _SetExperience(int iXPAmount)
     {
         int currentLevel = _XPToLevel(_currentXP);
-
+        _dlog("XP to Set: " + iXPAmount);
         _currentXP += iXPAmount;
         int nextLevel = _XPToLevel(_currentXP);
 
         if (nextLevel > currentLevel)
         {
-            Debug.Log("Level Up");
+            _dlog("Level Up");
             OnLevelUp?.Invoke(currentLevel, nextLevel);
         }
 
     }
     /// <summary>
-    /// The value to set to the slider for diplaying purposes
+    /// The value to set to the slider for diplaying purposes. it ranges from 0 to 1
     /// </summary>
     /// <returns>the slider value</returns>
     public float _GetSliderValue()
@@ -121,6 +145,9 @@ public class BAHMANXPManager : MonoBehaviour
         return -1;
     }
 }
+/// <summary>
+/// the level structure to show on the script menu
+/// </summary>
 [System.Serializable]
 struct levelStructure
 {

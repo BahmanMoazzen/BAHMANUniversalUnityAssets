@@ -101,7 +101,7 @@ public class BAHMANMusicBox : MonoBehaviour
         yield return null;
     }
     
-    public void _ChangePlayingStat([Tooltip("True = Start Play; False=Stop Play")] bool iPlayingStat)
+    public void _ChangePlayingStat(bool iPlayingStat)
     {
         if (iPlayingStat)
         {

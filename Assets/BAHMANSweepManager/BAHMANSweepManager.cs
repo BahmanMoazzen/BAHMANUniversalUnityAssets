@@ -1,8 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+/*
+ * BAHMANSweepManager V1.0
+ * 
+ * detect sweeps on the screen and fires proper event
+ * to use this class just listen to the following events:
+ * OnSweep : outloauds the direction of a complete and complying  with the rules sweep.
+ * OnStartDragging : the drag is started and the coordination on screen outloads.
+ * OnDragging : dragging is currently occuring and the position on screen updates.
+ * OnEndDragging : dragging is just ended and the end location outloads.
+ * OnCompleteDragOccured : fires when a complete drag occures bu it not check the rules. start and end and the duration outlauds.
+ */
+
 using UnityEngine;
 using UnityEngine.Events;
+
+/// <summary>
+/// the direction in which sweep occured
+/// </summary>
 public enum SweepDirections { Left, Right, Up, Down };
+
 public class BAHMANSweepManager : MonoBehaviour
 {
     [SerializeField] float _MaximumXDrag = 200f, _MaximumYDrag = 100f,_DragDeadTime = .8f;
@@ -26,16 +41,45 @@ public class BAHMANSweepManager : MonoBehaviour
     /// fires when a complete drag occured
     /// </summary>
     public static event UnityAction<Vector3, Vector3, float> OnCompleteDragOccured;
-
-
+    /// <summary>
+    /// whether provide debug information or not
+    /// </summary>
+    [SerializeField] bool _provideDebugInformation = false;
+    /// <summary>
+    /// check if the dragging is started
+    /// </summary>
     bool _isDragging = false;
+    /// <summary>
+    /// the duration of drag
+    /// </summary>
     float _dragDuration = 0;
+    /// <summary>
+    /// the start position of the drag
+    /// </summary>
     Vector3 _dragStartPosition = new Vector3(0, 0, 0);
+    /// <summary>
+    /// the end position of the drag
+    /// </summary>
     Vector3 _dragEndPosition = new Vector3(0, 0, 0);
+    /// <summary>
+    /// this field is for display porposes . it shows the sweep direction in the editor
+    /// </summary>
     [SerializeField] SweepDirections _Direction;
     /// <summary>
-    /// interprete the drag which is occured
+    /// interprete the drag which is occured and fires the OnCompleteDragOccured with 
     /// </summary>
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+    }
+    void _dlog(string iMessage)
+    {
+        if(_provideDebugInformation)
+        {
+            Debug.Log(iMessage);
+        }
+    }
     void _describeAction()
     {
         if (_dragDuration > _DragDeadTime) return;
@@ -53,17 +97,17 @@ public class BAHMANSweepManager : MonoBehaviour
                 {
                     OnSweep?.Invoke(SweepDirections.Left);
                     _Direction = SweepDirections.Left;
-                    Debug.Log("Sweep Left");
+                    _dlog("Sweep Left");
                 }
                 else if (xDelta < 0)
                 {
-                    Debug.Log("Sweep Right");
+                    _dlog("Sweep Right");
                     OnSweep?.Invoke(SweepDirections.Right);
                     _Direction = SweepDirections.Right;
                 }
                 else
                 {
-                    Debug.Log("No Magnetiude");
+                    _dlog("No Magnetiude");
                 }
             }
             else
@@ -73,23 +117,23 @@ public class BAHMANSweepManager : MonoBehaviour
                 {
                     OnSweep?.Invoke(SweepDirections.Down);
                     _Direction = SweepDirections.Down;
-                    Debug.Log("Sweep Down");
+                    _dlog("Sweep Down");
                 }
                 else if (yDelta < 0)
                 {
-                    Debug.Log("Sweep Up");
+                    _dlog("Sweep Up");
                     OnSweep?.Invoke(SweepDirections.Up);
                     _Direction = SweepDirections.Up;
                 }
                 else
                 {
-                    Debug.Log("No Magnetiude");
+                    _dlog("No Magnetiude");
                 }
             }
         }
         else
         {
-            Debug.Log("No Magnetiude");
+            _dlog("No Magnetiude");
         }
     }
 
@@ -111,23 +155,23 @@ public class BAHMANSweepManager : MonoBehaviour
                 OnDragging?.Invoke(Input.mousePosition);
 
             }
-            Debug.Log("Dragging.");
+            _dlog("Dragging.");
         }
         else
         {
             if (_isDragging)
             {
                 _isDragging = false;
-                Debug.Log("Drag Duration= " + _dragDuration);
+                _dlog("Drag Duration= " + _dragDuration);
                 _dragEndPosition = Input.mousePosition;
-                Debug.Log("Drag Magnetitude= " + Vector3.Distance(_dragStartPosition, _dragEndPosition));
+                _dlog("Drag Magnetitude= " + Vector3.Distance(_dragStartPosition, _dragEndPosition));
                 OnEndDragging?.Invoke(_dragEndPosition);
                 _describeAction();
             }
             else
             {
 
-                Debug.Log("IDLE");
+                _dlog("IDLE");
             }
         }
 

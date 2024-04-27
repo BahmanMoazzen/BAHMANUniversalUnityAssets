@@ -68,10 +68,9 @@ public class GameSettingInfo : ScriptableObject
     }
 
 
-    const string DANCETAG = "DanceTag",GameLevelSaveTag= "GameLevelSaveTag";
+    const string GameLevelSaveTag= "GameLevelSaveTag";
 
 
-    public DanceInfo[] DanceClips;
     public bool IsGameWon;
     public int ThisRunScore;
 
@@ -88,55 +87,8 @@ public class GameSettingInfo : ScriptableObject
             PlayerPrefs.SetInt(GameLevelSaveTag, value);
         }
     }
-    public int CurrentDanceClipIndex
-    {
-        set
-        {
-            PlayerPrefs.SetInt(DANCETAG, value);
-        }
-        get
-        {
-            return PlayerPrefs.GetInt(DANCETAG, 0);
-        }
-    }
-    public string CurrentDanceClipName
-    {
-        get
-        {
-            return DanceClips[CurrentDanceClipIndex].name;
-        }
-        
-    }
-    public DanceInfo CurrentDanceInfo
-    {
-        get
-        {
-            return DanceClips[CurrentDanceClipIndex];
-        }
-    }
-    public int DefaultDanceClipIndex
-    {
-        
-        get
-        {
-            return 0;
-        }
-    }
-    public string DefaultDanceClipName
-    {
-        get
-        {
-            return DanceClips[DefaultDanceClipIndex].name;
-        }
-
-    }
-    public DanceInfo DefaultDanceInfo
-    {
-        get
-        {
-            return DanceClips[DefaultDanceClipIndex];
-        }
-    }
+    
+    
 
 }
 

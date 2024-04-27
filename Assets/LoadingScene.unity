@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 10
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,6 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,6 +67,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -100,7 +104,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 3
+    serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -113,7 +117,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    buildHeightMesh: 0
+    accuratePlacement: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -124,9 +128,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3163375615340112727, guid: 9b0c616cb37575b48bb8999cb8a1b466, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3163375615340112727, guid: 9b0c616cb37575b48bb8999cb8a1b466, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -172,9 +179,6 @@ PrefabInstance:
       value: BAHMANSoundManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b0c616cb37575b48bb8999cb8a1b466, type: 3}
 --- !u!1 &321880298
 GameObject:
@@ -213,20 +217,18 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321880298}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0059372187, y: 0.34385467, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &760296049
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2549756951280707335, guid: 0ed69897a3c42ad4f91cecc81fdff9f2, type: 3}
@@ -236,6 +238,10 @@ PrefabInstance:
     - target: {fileID: 2549756951280707335, guid: 0ed69897a3c42ad4f91cecc81fdff9f2, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549756951280707335, guid: 0ed69897a3c42ad4f91cecc81fdff9f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2549756951280707335, guid: 0ed69897a3c42ad4f91cecc81fdff9f2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -314,16 +320,12 @@ PrefabInstance:
       value: BAHMANBackButtonManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed69897a3c42ad4f91cecc81fdff9f2, type: 3}
 --- !u!1001 &929474661
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 850002513, guid: 5212918ef7960e24f8c1da38ce474c31, type: 3}
@@ -341,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 4301338575341637776, guid: 5212918ef7960e24f8c1da38ce474c31, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301338575341637776, guid: 5212918ef7960e24f8c1da38ce474c31, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4301338575341637776, guid: 5212918ef7960e24f8c1da38ce474c31, type: 3}
       propertyPath: m_AnchorMax.x
@@ -418,22 +424,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8635541370639238329, guid: 5212918ef7960e24f8c1da38ce474c31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.060058594
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5212918ef7960e24f8c1da38ce474c31, type: 3}
 --- !u!1001 &1008019565
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1332566807573705200, guid: 3e4287cfccfdaae48bf4ee236b4d48e6, type: 3}
       propertyPath: m_Name
       value: BAHMANMusicBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403295534290484858, guid: 3e4287cfccfdaae48bf4ee236b4d48e6, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4403295534290484858, guid: 3e4287cfccfdaae48bf4ee236b4d48e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,21 +486,82 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e4287cfccfdaae48bf4ee236b4d48e6, type: 3}
+--- !u!1001 &1228584612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 479.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 241.16505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758813620613822601, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583626097286015740, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: _provideDebugInformation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867619651068636982, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
+      propertyPath: m_Name
+      value: BAHMANSweepManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf5b7eaf703ca0f44b5efbcc4045861c, type: 3}
 --- !u!1001 &528806212083391365
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5620524585184249917, guid: 6bca4bb246564f246a70da80d4dc3c59, type: 3}
       propertyPath: m_Name
       value: BAHMANXPManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293075495662425749, guid: 6bca4bb246564f246a70da80d4dc3c59, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7293075495662425749, guid: 6bca4bb246564f246a70da80d4dc3c59, type: 3}
       propertyPath: m_LocalPosition.x
@@ -533,16 +604,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bca4bb246564f246a70da80d4dc3c59, type: 3}
 --- !u!1001 &2435839318145295957
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1897934960813036699, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
@@ -552,6 +619,10 @@ PrefabInstance:
     - target: {fileID: 1897934960813036699, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897934960813036699, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1897934960813036699, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -629,23 +700,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: BAHMANMessageBox
       objectReference: {fileID: 0}
+    - target: {fileID: 5165082355575112520, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.256958
+      objectReference: {fileID: 0}
     - target: {fileID: 7762287753339236462, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.5598297
+      value: -0.55981445
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091877979700227097, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.5560303
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184708112884808026, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.256958
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aed0c131545e084ebe12ae8965eac1e, type: 3}
 --- !u!1001 &5497324886038064913
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560187957221938740, guid: 4dfaf5264b84ae442a28b263ba3a6eb1, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 560187957221938740, guid: 4dfaf5264b84ae442a28b263ba3a6eb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 220.51389
@@ -691,16 +774,12 @@ PrefabInstance:
       value: BAHMANLanguageManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dfaf5264b84ae442a28b263ba3a6eb1, type: 3}
 --- !u!1001 &5957053463668011835
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4641361728937450026, guid: 02c0562668681e541b9abe9632c18c49, type: 3}
@@ -713,6 +792,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5253723173088687022, guid: 02c0562668681e541b9abe9632c18c49, type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253723173088687022, guid: 02c0562668681e541b9abe9632c18c49, type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5253723173088687022, guid: 02c0562668681e541b9abe9632c18c49, type: 3}
@@ -788,16 +871,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02c0562668681e541b9abe9632c18c49, type: 3}
 --- !u!1001 &7268885466182756475
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4531125330470814069, guid: da7653545e3aa3745a0a08aad9f3bdc3, type: 3}
@@ -807,6 +886,10 @@ PrefabInstance:
     - target: {fileID: 4531125330470814069, guid: da7653545e3aa3745a0a08aad9f3bdc3, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531125330470814069, guid: da7653545e3aa3745a0a08aad9f3bdc3, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4531125330470814069, guid: da7653545e3aa3745a0a08aad9f3bdc3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -885,21 +968,4 @@ PrefabInstance:
       value: BAHMANPublicRelation
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da7653545e3aa3745a0a08aad9f3bdc3, type: 3}
---- !u!1660057539 &9223372036854775807
-SceneRoots:
-  m_ObjectHideFlags: 0
-  m_Roots:
-  - {fileID: 321880300}
-  - {fileID: 5497324886038064913}
-  - {fileID: 929474661}
-  - {fileID: 760296049}
-  - {fileID: 227976423}
-  - {fileID: 1008019565}
-  - {fileID: 5957053463668011835}
-  - {fileID: 2435839318145295957}
-  - {fileID: 7268885466182756475}
-  - {fileID: 528806212083391365}
