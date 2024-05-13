@@ -118,36 +118,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a7b06bc82073d844a991642559d6668, type: 2}
   - {fileID: 11400000, guid: 8913a48422bb1aa43a6eca7c09639630, type: 2}
   - {fileID: 11400000, guid: 1ca01dddb09d8d842aadec767bddb258, type: 2}
-  _PRTitle:
-  - Title: Send To Others
-    Message: If you liked this game,Please send it to your friends.
-  - Title: Rate Us
-    Message: Whould you like to rate us five star?
-  - Title: Other Products
-    Message: Do you want to visit our other products?
-  - Title: Donate
-    Message: Donate to help us improve our works!
-  - Title: Welcome
-    Message: Welcome to another product of Helen Game Factory
-  _AllSettings:
-  - SceneName: TitleScreen
-    RelationType: 2
-    SceneCount: 8
-  - SceneName: TitleScreen
-    RelationType: 0
-    SceneCount: 5
-  - SceneName: TitleScreen
-    RelationType: 1
-    SceneCount: 3
-  - SceneName: Aftermath
-    RelationType: 0
-    SceneCount: 6
-  - SceneName: Aftermath
-    RelationType: 1
-    SceneCount: 10
-  - SceneName: Aftermath
-    RelationType: 2
-    SceneCount: 4
+  _PageCountSettings: {fileID: 11400000, guid: 13be196d9ec48214789d4412e73adc59, type: 2}
   _subject: Roobak Game Link
   _text: 'Play Roobak On {1}:   https://myket.ir/app/{0}'
   _title: Send To ...

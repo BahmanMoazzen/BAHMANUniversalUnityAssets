@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CafeBazaar
   m_EditorClassIdentifier: 
   MarketName: Cafe Bazaar
-  MarketShareURL: 
-  MarketRatingURL: 
-  MarketOtherProductURL: 
+  MarketShareURL: https://cafebazaar.ir/app/{0}
+  MarketRatingURL: bazaar://details?id={0}
+  MarketOtherProductURL: bazaar://collection?slug=by_author&aid=117608070773
