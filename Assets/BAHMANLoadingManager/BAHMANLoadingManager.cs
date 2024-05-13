@@ -1,6 +1,9 @@
 /*
  * 
  * Loading Manager Version 1.1
+ * Loads the scene by refering to the enum of scenes
+ * Listens to the game change scene and show proper screen
+ * 
  * 
  */
 
@@ -12,7 +15,7 @@ using System.Collections;
 
 
 /// <summary>
-/// all the scens in the build list of the game
+/// all the scens in the build list of the game. CHANEG TO MATCH THE GAME NEEDS
 /// </summary>
 public enum AllScenes { LoadingScene, TitleScreenScene, GameScene, AftermathScene }
 
