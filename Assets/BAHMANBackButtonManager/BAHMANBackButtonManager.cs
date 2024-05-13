@@ -5,7 +5,6 @@ It should be loaded in the very first scene because it won't be destroyed on loa
 use the prefab provided in this folder to modify the look of the message box.
 */
 
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -32,19 +31,7 @@ public class BAHMANBackButtonManager : MonoBehaviour
     const string _prefabName = "BAHMANBackButtonManager";
     bool _isBackPanelActive = false;
 
-    //[MenuItem("BAHMAN Unity Assets/Create Back Button Manager", false, 2)]
-    //static void CreateCustomGameObject(MenuCommand menuCommand)
-    //{
-
-    //    GameObject newGo = Instantiate(Resources.Load<GameObject>(_prefabName), Vector3.zero, Quaternion.identity);
-
-    //    //GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
-    //    //Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
-    //    newGo.name = _prefabName;
-    //    Selection.activeObject = newGo;
-
-    //}
-
+    
 
     void Awake()
     {
@@ -88,7 +75,6 @@ public class BAHMANBackButtonManager : MonoBehaviour
         _isBackPanelActive = false;
         BAHMANLoadingManager._INSTANCE._LoadScene(_HomeSceneName);
 
-        //LoadingManager._INSTANCE._LoadScene(_HomeSceneName);
     }
     void _closeClicked()
     {

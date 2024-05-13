@@ -1,5 +1,5 @@
 /*
- * BAHMANSweepManager V1.0
+ * BAHMANSweepManager V1.1
  * 
  * detect sweeps on the screen and fires proper event
  * to use this class just listen to the following events:
