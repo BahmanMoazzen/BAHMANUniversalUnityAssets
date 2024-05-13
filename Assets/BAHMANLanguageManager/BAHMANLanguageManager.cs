@@ -1,6 +1,7 @@
 /*
  *  Language Translator Ver. 1.0
- * 
+ * Translates the game texts and can be reached with singletone
+ * CHANGE THE WORDS IN LANGUAGE MANAGER INFO
  * 
  */
 using System.Collections;

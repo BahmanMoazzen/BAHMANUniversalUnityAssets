@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "NewLanguageSetting", order = 1, menuName = "BAHMAN Unity Assets/New Language Settings")]
+[CreateAssetMenu(fileName = "NewLanguageSetting", order = 1, menuName = "BAHMAN Unity Assets/Language/New Language Settings")]
 public class LanguageManagerInfo : ScriptableObject
 {
     [SerializeField] bool _enableTranslation;

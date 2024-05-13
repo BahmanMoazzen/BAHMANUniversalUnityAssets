@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "MusicBoxSceneInfo", menuName = "BAHMAN Unity Assets/Music Box Scene Info", order = 1)]
+[CreateAssetMenu(fileName = "MusicBoxSceneInfo", menuName = "BAHMAN Unity Assets/Musics And Sounds/Music Box Scene Info", order = 1)]
 
 public class MusicBoxSceneInfo : ScriptableObject
 {

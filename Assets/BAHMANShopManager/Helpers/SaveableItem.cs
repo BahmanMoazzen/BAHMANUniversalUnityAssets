@@ -1,6 +1,6 @@
 
 using UnityEngine;
-[CreateAssetMenu(fileName ="NewSaveableItem",menuName ="BAHMAN Unity Assets/Saveable Item",order =3)]
+[CreateAssetMenu(fileName ="NewSaveableItem",menuName ="BAHMAN Unity Assets/Shop/Saveable Item",order =3)]
 public class SaveableItem : ScriptableObject
 {
 

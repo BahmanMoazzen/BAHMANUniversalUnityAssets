@@ -1,5 +1,5 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "NewShopItem", menuName = "BAHMAN Unity Assets/Shop Item", order = 1)]
+[CreateAssetMenu(fileName = "NewShopItem", menuName = "BAHMAN Unity Assets/Shop/Shop Item", order = 1)]
 public class ShoptItemInfo : ScriptableObject
 {
     const char TOUSANDSEPRATOR = ',';

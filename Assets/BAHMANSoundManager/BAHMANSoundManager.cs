@@ -11,6 +11,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/// <summary>
+/// all the game sound FXs. CHANEG TO MATCH THE GAME NEEDS
+/// </summary>
+public enum GameSounds { Step, GameOver, ButtomClicked, ButtonSlide, SceneTransition, Pickup, Hit, StartGame, EndGame }
+
+
 public class BAHMANSoundManager : MonoBehaviour
 {
     public static event UnityAction<GameSounds, float> OnClipStarted, OnClipEnded;
@@ -90,10 +97,7 @@ public class BAHMANSoundManager : MonoBehaviour
     }
 
 }
-/// <summary>
-/// all the game sound FXs
-/// </summary>
-public enum GameSounds { Step, GameOver, ButtomClicked, ButtonSlide, SceneTransition, Pickup, Hit, StartGame, EndGame }
+
 /// <summary>
 /// the structure to save the game sound fxs. any sound can have multiple variants
 /// </summary>
