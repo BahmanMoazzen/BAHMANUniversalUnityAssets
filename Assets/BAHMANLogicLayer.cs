@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public static class A
+public static class BAHMANLogicLayer
 {
     public static class Tags
     {

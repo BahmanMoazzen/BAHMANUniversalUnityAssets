@@ -30,26 +30,26 @@ public class GameSettingInfo : ScriptableObject
     {
         get
         {
-            return A.Tools.IntToBool(PlayerPrefs.GetInt(SOUNDFXTAG, A.Tools.BoolToInt(soundFX)));
+            return BAHMANLogicLayer.Tools.IntToBool(PlayerPrefs.GetInt(SOUNDFXTAG, BAHMANLogicLayer.Tools.BoolToInt(soundFX)));
 
         }
         set
         {
             OnSoundFXChange?.Invoke(value);
-            PlayerPrefs.SetInt(SOUNDFXTAG, A.Tools.BoolToInt(value));
+            PlayerPrefs.SetInt(SOUNDFXTAG, BAHMANLogicLayer.Tools.BoolToInt(value));
         }
     }
     public bool Music
     {
         get
         {
-            return A.Tools.IntToBool(PlayerPrefs.GetInt(MUSICTAG, A.Tools.BoolToInt(music)));
+            return BAHMANLogicLayer.Tools.IntToBool(PlayerPrefs.GetInt(MUSICTAG, BAHMANLogicLayer.Tools.BoolToInt(music)));
 
         }
         set
         {
             OnMusicChange?.Invoke(value);
-            PlayerPrefs.SetInt(MUSICTAG, A.Tools.BoolToInt(value));
+            PlayerPrefs.SetInt(MUSICTAG, BAHMANLogicLayer.Tools.BoolToInt(value));
         }
     }
     public bool AntiAliasing
@@ -57,13 +57,13 @@ public class GameSettingInfo : ScriptableObject
         get
         {
 
-            return A.Tools.IntToBool(PlayerPrefs.GetInt(ANTIALIASINGTAG, A.Tools.BoolToInt(antiAliasing)));
+            return BAHMANLogicLayer.Tools.IntToBool(PlayerPrefs.GetInt(ANTIALIASINGTAG, BAHMANLogicLayer.Tools.BoolToInt(antiAliasing)));
 
         }
         set
         {
             OnAntialiasingChange?.Invoke(value);
-            PlayerPrefs.SetInt(ANTIALIASINGTAG, A.Tools.BoolToInt(value));
+            PlayerPrefs.SetInt(ANTIALIASINGTAG, BAHMANLogicLayer.Tools.BoolToInt(value));
         }
     }
 
